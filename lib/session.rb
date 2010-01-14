@@ -86,7 +86,9 @@ module Session
     class << self
       def default_prog
         return @default_prog if defined? @default_prog and @default_prog
-        if defined? self::DEFAULT_PROG
+        # Workaround for http://jira.codehaus.org/browse/JRUBY-4479
+        if (self::DEFAULT_PROG rescue nil)
+#        if defined? self::DEFAULT_PROG
           return @default_prog = self::DEFAULT_PROG 
         else
           @default_prog = ENV["SESSION_#{ self }_PROG"]
@@ -150,10 +152,14 @@ module Session
       @use_spawn = self.class::use_spawn unless self.class::use_spawn.nil?
       @use_spawn = getopt('use_spawn', opts) if hasopt('use_spawn', opts)
 
-      @use_open3 = nil
-      @use_open3 = Session::use_open3 unless Session::use_open3.nil?
-      @use_open3 = self.class::use_open3 unless self.class::use_open3.nil?
-      @use_open3 = getopt('use_open3', opts) if hasopt('use_open3', opts) 
+      if defined? JRUBY_VERSION
+        @use_open3 = true
+      else
+        @use_open3 = nil
+        @use_open3 = Session::use_open3 unless Session::use_open3.nil?
+        @use_open3 = self.class::use_open3 unless self.class::use_open3.nil?
+        @use_open3 = getopt('use_open3', opts) if hasopt('use_open3', opts)
+      end
 
       @debug = nil
       @debug = Session::debug unless Session::debug.nil?

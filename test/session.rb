@@ -17,6 +17,9 @@ Session::debug = true
 class TimeoutError < StandardError; end
 def timeout n
 #{{{
+  # JRuby does not support fork, so we stub out timeout here
+  return yield if defined? JRUBY_VERSION
+
   ret = nil
   cid = fork 
   unless cid
