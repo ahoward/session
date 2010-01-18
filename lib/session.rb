@@ -86,9 +86,7 @@ module Session
     class << self
       def default_prog
         return @default_prog if defined? @default_prog and @default_prog
-        # Workaround for http://jira.codehaus.org/browse/JRUBY-4479
-        if (self::DEFAULT_PROG rescue nil)
-#        if defined? self::DEFAULT_PROG
+        if defined? self::DEFAULT_PROG
           return @default_prog = self::DEFAULT_PROG 
         else
           @default_prog = ENV["SESSION_#{ self }_PROG"]
