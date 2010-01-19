@@ -3,12 +3,12 @@
 
 Gem::Specification::new do |spec|
   spec.name = "session"
-  spec.version = "2.5.0"
+  spec.version = "2.6.0"
   spec.platform = Gem::Platform::RUBY
   spec.summary = "session"
   spec.description = "description: session kicks the ass"
 
-  spec.files = ["gemspec.rb", "lib", "lib/session.rb", "LICENSE", "Rakefile", "README", "sample", "sample/bash.rb", "sample/bash.rb.out", "sample/driver.rb", "sample/session_idl.rb", "sample/session_sh.rb", "sample/sh0.rb", "sample/stdin.rb", "sample/threadtest.rb", "test", "test/session.rb"]
+  spec.files = ["gemspec.rb", "lib", "lib/session.rb", "LICENSE", "Rakefile", "README", "sample", "sample/bash.rb", "sample/bash.rb.out", "sample/driver.rb", "sample/session_idl.rb", "sample/session_sh.rb", "sample/sh0.rb", "sample/stdin.rb", "sample/threadtest.rb", "session.gemspec", "test", "test/session.rb"]
   spec.executables = []
   
   spec.require_path = "lib"

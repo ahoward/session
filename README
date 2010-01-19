@@ -84,6 +84,9 @@ SAMPLES: |
   see samples/*
 
 HISTORY: |
+  3.1.0:
+    - patches from @headius
+
   3.0.0
     - move to github
 

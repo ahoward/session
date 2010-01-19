@@ -5,7 +5,7 @@ require 'yaml'
 require 'tempfile'
 
 module Session 
-  VERSION = '2.5.0'
+  VERSION = '3.1.0'
   def self.version() VERSION end
 
   @track_history = ENV['SESSION_HISTORY'] || ENV['SESSION_TRACK_HISTORY']
