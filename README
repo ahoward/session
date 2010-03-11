@@ -20,7 +20,7 @@ SYNOPSIS: |
 
     open3:
 
-        i.o,e = Open3::popen3 '/bin/sh'
+        i,o,e = Open3::popen3 '/bin/sh'
 
         i.puts 'ls'
         i.puts 'echo 42'
@@ -28,12 +28,12 @@ SYNOPSIS: |
     now, how to determine the boundry between the output from 'ls' and 'echo'?
     the only (simple) way is start a process for each command
 
-        i.o,e = Open3::popen3 '/bin/sh'
+        i,o,e = Open3::popen3 '/bin/sh'
         i.puts 'ls'
         i.close
         stdout, stderr = o.read, e.read
 
-        i.o,e = Open3::popen3 '/bin/sh'
+        i,o,e = Open3::popen3 '/bin/sh'
         i.puts 'echo 42'
         i.close
         stdout, stderr = o.read, e.read

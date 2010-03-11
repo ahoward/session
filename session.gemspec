@@ -3,7 +3,7 @@
 
 Gem::Specification::new do |spec|
   spec.name = "session"
-  spec.version = "2.6.0"
+  spec.version = "3.1.0"
   spec.platform = Gem::Platform::RUBY
   spec.summary = "session"
   spec.description = "description: session kicks the ass"
