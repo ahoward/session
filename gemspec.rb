@@ -47,7 +47,6 @@ template = <<-__
     spec.has_rdoc = #{ has_rdoc.inspect }
     spec.test_files = #{ test_files.inspect }
     #spec.add_dependency 'lib', '>= version'
-    #spec.add_dependency 'fattr'
 
     spec.extensions.push(*#{ extensions.inspect })
 
