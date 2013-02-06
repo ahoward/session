@@ -452,13 +452,13 @@ module Session
       self
     end
     def send_command cmd
-      stdin.printf "%s '%s' 1>&2\n", ECHO, cmd.begin_err
-      stdin.printf "%s '%s' \n", ECHO, cmd.begin_out
+      stdin.printf "%s '%s' 1>&2 ;", ECHO, cmd.begin_err
+      stdin.printf "%s '%s' ;", ECHO, cmd.begin_out
  
-      stdin.printf "%s\n", cmd.cmd
-      stdin.printf "export __exit_status__=$?\n"
+      stdin.printf "%s ;", cmd.cmd
+      stdin.printf "export __exit_status__=$? ;"
 
-      stdin.printf "%s '%s' 1>&2\n", ECHO, cmd.end_err
+      stdin.printf "%s '%s' 1>&2 ;", ECHO, cmd.end_err
       stdin.printf "%s '%s' \n", ECHO, cmd.end_out
  
       stdin.flush
