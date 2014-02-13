@@ -6,7 +6,7 @@ Gem::Specification::new do |spec|
   spec.version = "3.1.0"
   spec.platform = Gem::Platform::RUBY
   spec.summary = "session"
-  spec.description = "description: session kicks the ass"
+  spec.description = "session offers a persistent way to drive the shell (/bin/sh) via ruby"
 
   spec.files = ["gemspec.rb", "lib", "lib/session.rb", "LICENSE", "Rakefile", "README", "sample", "sample/bash.rb", "sample/bash.rb.out", "sample/driver.rb", "sample/session_idl.rb", "sample/session_sh.rb", "sample/sh0.rb", "sample/stdin.rb", "sample/threadtest.rb", "session.gemspec", "test", "test/session.rb"]
   spec.executables = []
