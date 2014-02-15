@@ -5,8 +5,12 @@ require 'yaml'
 require 'tempfile'
 
 module Session 
-  VERSION = '3.1.0'
+  VERSION = '3.1.1'
   def self.version() VERSION end
+
+  def Session.description
+    'persistent connections with external programs like bash'
+  end
 
   @track_history = ENV['SESSION_HISTORY'] || ENV['SESSION_TRACK_HISTORY']
   @use_spawn     = ENV['SESSION_USE_SPAWN']
