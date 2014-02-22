@@ -3,7 +3,7 @@
 
 Gem::Specification::new do |spec|
   spec.name = "session"
-  spec.version = "3.1.1"
+  spec.version = "3.1.2"
   spec.platform = Gem::Platform::RUBY
   spec.summary = "session"
   spec.description = "persistent connections with external programs like bash"
@@ -35,8 +35,7 @@ Gem::Specification::new do |spec|
 
   spec.test_files = "test/session.rb"
 
-### spec.add_dependency 'lib', '>= version'
-#### spec.add_dependency 'map'
+  
 
   spec.extensions.push(*[])
 
