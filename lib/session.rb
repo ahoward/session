@@ -5,7 +5,7 @@ require 'yaml'
 require 'tempfile'
 
 module Session 
-  VERSION = '3.1.2'
+  VERSION = '3.2.0'
   def self.version() VERSION end
 
   def Session.description
