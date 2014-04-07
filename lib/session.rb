@@ -377,6 +377,9 @@ module Session
 
                 line = iodat[:io].gets
 
+                # In case their are weird chars, this will avoid a "invalid byte sequence in US-ASCII" error
+                line.force_encoding("binary") if line.respond_to? :force_encoding
+
                 buf = nil
 
                 case line
