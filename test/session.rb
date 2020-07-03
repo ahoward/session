@@ -196,12 +196,14 @@ end
             assert_nothing_raised { sh = Shell.new } 
             sh.debug = true
             #cmd = 'date; sleep 1;' * 3      
-            cmd = 'ruby -e "puts 42; sleep 0.1"' * 3      
+            cmd = 'ruby -e "puts 42; sleep 0.1";' * 3
             sh.execute(cmd) do |o,e|
              line = o || e
              lines << [Time.now.to_f, line]
             end
           }.join
+
+          assert_equal 3, lines.count
 
           i = 0
           while((a = lines[i]) and (b = lines[i + 1]))
