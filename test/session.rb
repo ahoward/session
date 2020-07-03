@@ -38,7 +38,7 @@ def timeout n
       end
     ensure
       begin; Process.kill 'SIGQUIT', cid; rescue Exception; end 
-      begin; Process.wait; rescue Exception => e; end
+      begin; Process.wait cid; rescue Exception => e; end
       trap 'SIGUSR1', handler if defined? handler
     end
   end
