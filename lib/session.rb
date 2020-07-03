@@ -355,7 +355,7 @@ module Session
         :mutex     => mutex,
       }
 
-    begin
+      begin
       # send command in the background so we can begin processing output
       # immediately - thanks to tanaka akira for this suggestion
         threads << Thread::new { send_command cmd }
