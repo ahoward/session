@@ -38,7 +38,7 @@ def timeout n
       end
     ensure
       begin; Process.kill 'SIGQUIT', cid; rescue Exception; end 
-      begin; Process.wait; rescue Exception => e; end
+      begin; Process.wait; rescue Exception; end
       trap 'SIGUSR1', handler if defined? handler
     end
   end
@@ -71,8 +71,7 @@ module Session
   class Test < Test::Unit::TestCase 
     def test_0
 #{{{
-      sh = nil
-      assert_nothing_raised { sh = Shell.new } 
+      assert_nothing_raised { Shell.new }
 #}}}
     end
     def test_1

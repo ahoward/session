@@ -18,10 +18,10 @@ module Session
   @debug         = ENV['SESSION_DEBUG']
 
   class << self
-    attr :track_history, true
-    attr :use_spawn, true
-    attr :use_open3, true
-    attr :debug, true
+    attr_accessor :track_history
+    attr_accessor :use_spawn
+    attr_accessor :use_open3
+    attr_accessor :debug
     def new(*a, &b)
       Sh::new(*a, &b)
     end
@@ -45,19 +45,19 @@ module Session
     end
 
     # attributes
-    attr :cmd
-    attr :cmdno
-    attr :out,true
-    attr :err,true
-    attr :cid
-    attr :begin_out
-    attr :end_out
-    attr :begin_out_pat
-    attr :end_out_pat
-    attr :begin_err
-    attr :end_err
-    attr :begin_err_pat
-    attr :end_err_pat
+    attr_reader :cmd
+    attr_reader :cmdno
+    attr_accessor :out
+    attr_accessor :err
+    attr_reader :cid
+    attr_reader :begin_out
+    attr_reader :end_out
+    attr_reader :begin_out_pat
+    attr_reader :end_out_pat
+    attr_reader :begin_err
+    attr_reader :end_err
+    attr_reader :begin_err_pat
+    attr_reader :end_err_pat
 
     def initialize(command)
       @cmd = command.to_s
@@ -100,10 +100,10 @@ module Session
       def default_prog= prog
         @default_prog = prog 
       end
-      attr :track_history, true
-      attr :use_spawn, true
-      attr :use_open3, true
-      attr :debug, true
+      attr_accessor :track_history
+      attr_accessor :use_spawn
+      attr_accessor :use_open3
+      attr_accessor :debug
       def init
         @track_history = nil
         @use_spawn = nil
@@ -117,23 +117,23 @@ module Session
     init
 
   # attributes
-    attr :opts
-    attr :prog
-    attr :stdin
+    attr_reader :opts
+    attr_reader :prog
+    attr_reader :stdin
     alias i stdin
-    attr :stdout
+    attr_reader :stdout
     alias o stdout
-    attr :stderr
+    attr_reader :stderr
     alias e stderr
-    attr :history
-    attr :track_history
-    attr :outproc, true
-    attr :errproc, true
-    attr :use_spawn
-    attr :use_open3
-    attr :debug, true
+    attr_reader :history
+    attr_reader :track_history
+    attr_accessor :outproc
+    attr_accessor :errproc
+    attr_reader :use_spawn
+    attr_reader :use_open3
+    attr_accessor :debug
     alias debug? debug
-    attr :threads
+    attr_reader :threads
 
   # instance methods
     def initialize(*args)
@@ -355,7 +355,7 @@ module Session
         :mutex     => mutex,
       }
 
-    begin
+      begin
       # send command in the background so we can begin processing output
       # immediately - thanks to tanaka akira for this suggestion
         threads << Thread::new { send_command cmd }
@@ -446,7 +446,7 @@ module Session
     DEFAULT_PROG    = 'sh'
     ECHO            = 'echo'
 
-    attr :status
+    attr_reader :status
     alias exit_status status
     alias exitstatus status
 
